@@ -1,0 +1,50 @@
+page-editremark {
+
+.col{
+	flex: 0 0 50%;
+	max-width: 50%;
+	padding:2px 5px;
+	text-align:center;
+}
+.center{
+	text-align: center;
+}
+.my-icon:before,
+.my-icon{
+	width: 70px;
+	height: 70px;
+	padding: 5px;
+	margin-left: auto;
+    margin-right: auto;
+	color: #00ccff;
+	display:block;	
+}
+.color{
+	color: #ffffff;
+}
+.my-icon2{
+	width: 30%;
+	font-size: 25px !important;
+	align-content: center;
+	color: #ffffff;	
+}
+.tengah{
+	display: block;
+    margin-left: auto;
+    margin-right: 46%;
+}
+
+input[type=number] { text-align:right }
+
+.font-item{
+	font-family: "Fujitsu Sans Medium";
+}
+.pattern1 {
+    background:
+    radial-gradient(circle at 0% 50%, rgba(96, 16, 48, 0) 9px, #613 10px, rgba(96, 16, 48, 0) 11px) 0 10px,
+    radial-gradient(at 100% 100%,      rgba(96, 16, 48, 0) 9px, #613 10px, rgba(96, 16, 48, 0) 11px),
+    #8a3;
+    background-size: 20px 20px;
+  }
+
+}

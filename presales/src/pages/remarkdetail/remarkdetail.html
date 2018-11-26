@@ -1,0 +1,102 @@
+<!--
+  Generated template for the RemarkdetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header class="font-item">
+
+  <ion-navbar color="primary">
+    <img src="../../assets/imgs/logo_presales.png" class="tengah" height="60">
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="font-item">
+	<ion-grid class="gridfull">
+      <ion-row>
+        <ion-col>
+          <a style="width: 294px; height: 100px; background-color: #ff1a1a; padding: 10px;" class="button button-icon color">
+          <table align="center">
+            <tr>{{ projectremark.project_name }}</tr>
+            <tr>{{ projectremark.customer_name }}</tr>
+            <tr>{{ projectremark.employees_name }}</tr>
+          </table>
+          </a>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col *ngFor="let remarklist of remark">
+          <a style="width: 145px; height: 100px; background-color: #0078d7; padding: 10px;" class="button button-icon color">
+          <table align="center">
+            <tr>{{ remarklist.remark }}</tr>
+          </table>
+          </a>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-fab right bottom>
+      <button ion-fab color="secondary"><ion-icon name="arrow-dropleft"></ion-icon></button>
+      <ion-fab-list side="left">
+        <button (click)="ionNew(projectremark.id_proj)" ion-fab color="secondary"><ion-icon name="add-circle"></ion-icon></button>
+      </ion-fab-list>
+    </ion-fab>
+    <ion-list>
+
+	  <ion-item>
+	  	<ion-label floating>Project Name</ion-label>
+		    <ion-select [(ngModel)]="projectremark.id_proj" name="id_proj">
+		      <ion-option value="{{projectremark.id_proj}}">{{projectremark.project_name}}</ion-option>
+			</ion-select>
+	  </ion-item>
+
+	  <ion-item>
+	  	  <ion-label floating>Date Remark Plan</ion-label>
+	      <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="projectremark.date_remark" name="date_remark"></ion-datetime>
+	  </ion-item>
+
+	  <ion-item>
+	  	  <ion-label floating>Remark</ion-label>
+	  	  <ion-textarea [(ngModel)]="projectremark.remark" name="remark"></ion-textarea>
+	  </ion-item>
+
+	  <ion-item>
+	  	<ion-label floating>Status Remark</ion-label>
+		    <ion-select [(ngModel)]="projectremark.status_remark" name="status_remark">
+		      <ion-option *ngFor="let remarkmaster of remarks">{{remarkmaster.status_remark_name}}</ion-option>
+			</ion-select>
+	  </ion-item>
+
+	  <ion-item>
+	  	  <ion-label floating>Date Target</ion-label>
+	      <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="projectremark.date_target" name="date_target"></ion-datetime>
+	  </ion-item>
+
+	  <div padding>
+	  	<button ion-button type="ngSubmit" (click)="ionAddremark(projectremark.id_proj)" block>Save</button>
+	  </div>
+	</ion-list>
+</ion-content>
+<ion-footer class="font-item">
+  <ion-toolbar color="primary">
+    <ion-col>
+      <a style="width: 90px;" class="button button-icon color" (click)="ionHome()">
+      <ion-icon name="home" class="my-icon2"></ion-icon>
+      Home
+      </a>
+    </ion-col>
+    <ion-col>
+      <a style="width: 90px;" class="button button-icon color" (click)="ionAbout()">
+      <ion-icon name="information-circle" class="my-icon2"></ion-icon>
+      About
+      </a>
+    </ion-col>
+    <ion-col>
+      <a style="width: 90px;" class="button button-icon color" (click)="ionContact()">
+      <ion-icon name="contacts" class="my-icon2"></ion-icon>
+      Contact
+      </a>
+    </ion-col>
+  </ion-toolbar>
+</ion-footer>

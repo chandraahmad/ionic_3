@@ -1,0 +1,54 @@
+page-typecustomer {
+.my-icon:before,
+.my-icon{
+	width: 80px;
+	height: 80px;
+	padding: 5px;
+	margin-left: auto;
+    margin-right: auto;
+	color: #00ccff;
+	display:block;	
+}
+.my-icon2{
+	width: 30%;
+	align-content: center;
+	color: #ffffff;
+	font-size: 30px;	
+}
+.nav-center{
+  display:block;
+  margin-right: auto;
+  margin-left: auto;
+}
+.font-item{
+	font-family: "Fujitsu Sans Medium";
+	font-size: 14px;
+	background-color: #DCDCDC;
+}
+.color{
+	color: #000000;
+}
+.windows .col {
+  flex: 50%;
+  padding: 2%;
+}
+.windows .class2-2 {
+  padding: 5%;
+  background-color: #ffffff;
+  border-radius: 2%;
+  box-shadow: 1px 2px #BEBEBE;
+  text-align:center; 
+}
+.large {
+  height: 100px;
+  font-size: 14px;
+  padding: 15px;
+  z-index: 100; 
+}
+.small {
+  height: 100px;
+  font-size: 14px;
+  padding: 22px; 
+}
+
+}

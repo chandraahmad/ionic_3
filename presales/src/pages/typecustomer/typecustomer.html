@@ -1,0 +1,41 @@
+<!--
+  Generated template for the TypecustomerPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header class="font-item">
+
+  <ion-navbar color="white">
+    <ion-title>By Type Customer</ion-title> 
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="font-item windows">
+  <ion-row baseline>
+    <ion-col *ngFor="let customertype of customertypes" (click)="ionGetbyidcustomer(customertype.customer_type, customertype, employees_name)">
+      <div class="class2-2">
+        <a class="color">
+        <img src="~/../assets/imgs/office-block.png" class="my-icon">
+        <table align="center" class="color">
+          <tr>{{ customertype.customer_type }}</tr>
+        </table>
+        </a>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-content>
+<!-- <ion-footer class="font-item">
+  <ion-toolbar color="primary">
+    <ion-col>
+      <ion-icon name="home" class="my-icon2" (click)="ionHome(employees_name)"></ion-icon>
+    </ion-col>
+    <ion-col>
+      <ion-icon name="information-circle" class="my-icon2" (click)="ionAbout(employees_name)"></ion-icon>
+    </ion-col>
+    <ion-col>
+      <ion-icon name="contacts" class="my-icon2" (click)="ionContact(employees_name)"></ion-icon>
+    </ion-col>
+  </ion-toolbar>
+</ion-footer> -->

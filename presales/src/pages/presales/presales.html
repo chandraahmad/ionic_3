@@ -1,0 +1,29 @@
+<!--
+  Generated template for the PresalesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header class="font-item">
+
+  <ion-navbar color="white">
+    <ion-title>By Presales</ion-title> 
+  </ion-navbar>
+  <ion-navbar hideBackButton color="white">
+  	<ion-searchbar (ionInput)="ionSearch($event)"></ion-searchbar>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="font-item">
+  <ion-row class="windows">
+    <ion-col *ngFor="let presale of presales" (click)="ionGetbyid(presale.id_presales, employees_name)">
+      <div class="class2-2">
+        <a class="color">
+        <img src="~/../assets/imgs/travel.png" class="my-icon">
+        {{presale.presales_name}}
+        </a>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-content>

@@ -1,0 +1,244 @@
+<!--
+  Generated template for the NewPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header class="font-item">
+  <ion-navbar color="secondary">
+       <img src="~/../assets/imgs/logo_presales.png" class="tengah" height="50">
+  </ion-navbar>
+</ion-header>
+<ion-content class="font-item">
+	<ion-list>
+		<ion-input type="hidden" [(ngModel)]="presale.employees_insert" name="employees_insert"></ion-input>
+		  <ion-item>
+		  	<ion-label floating>Bisnis Unit</ion-label>
+			    <ion-select [(ngModel)]="presale.bu_name" name="bu_name" interface="action-sheet">
+			      <ion-option *ngFor="let bisnisunitlist of bisnisunit">{{bisnisunitlist.bu_name}}</ion-option>
+			</ion-select>
+		  </ion-item>
+
+		  <ion-item>
+		    <ion-label floating>Pipeline(*)</ion-label>
+		    <ion-select [(ngModel)]="presale.pipeline" name="pipeline" interface="action-sheet" (ionChange)="ionStatusproject(presale.pipeline)">
+			      <ion-option *ngFor="let pipeline of pipelines">{{pipeline.pipeline}}</ion-option>
+			</ion-select>
+		  </ion-item>
+		  
+		  <ion-item>
+		  	<ion-label floating>Presales Name(*)</ion-label>
+			    <ion-select [(ngModel)]="presale.id_presales" name="id_presales" interface="action-sheet">
+			      <ion-option *ngFor="let presale of presales" value="{{presale.id_presales}}">{{presale.presales_name}}</ion-option>
+			</ion-select>
+		  </ion-item>
+
+		  <ion-item>
+		    <ion-label floating>Project Name(*)</ion-label>
+		    <ion-input type="text" [(ngModel)]="presale.project_name" name="project_name" required #project_name="ngModel"></ion-input>
+		  </ion-item>
+
+		  <ion-item>
+		  	<ion-label floating>Customer Name(*)</ion-label>
+			    <ion-select [(ngModel)]="presale.customer_name" name="customer_name" interface="action-sheet">
+			      <ion-option *ngFor="let customer of customers">{{customer.customer_name}}</ion-option>
+			</ion-select>
+		  </ion-item>
+
+		  <ion-item>
+		  	  <ion-label floating>Current Status</ion-label>
+		  	  <ion-textarea [(ngModel)]="presale.current_status" name="current_status"></ion-textarea>
+		  </ion-item>
+
+		  <ion-item>
+		    <ion-label floating>ID Opportunity(*)</ion-label>
+		    <ion-input type="text" [(ngModel)]="presale.oppty_id" name="oppty_id"></ion-input>
+		  </ion-item>
+
+		  <ion-item>
+		  	<ion-label floating>Type Customer(*)</ion-label>
+			    <ion-select [(ngModel)]="presale.customer_type" name="customer_type" interface="action-sheet">
+			      <ion-option *ngFor="let customertype of customertypes">{{customertype.customer_type}}</ion-option>
+			</ion-select>
+		  </ion-item>
+
+		  <ion-item>
+		  	<ion-label floating>Solution Category</ion-label>
+			    <ion-select [(ngModel)]="presale.solution_category_name" name="solution_category_name" interface="action-sheet">
+			      <ion-option *ngFor="let solution of solutions">{{solution.solution_category_name}}</ion-option>
+			</ion-select>
+		  </ion-item>
+
+		  <ion-item>
+		  	  <ion-label floating>Solution</ion-label>
+		  	  <ion-textarea [(ngModel)]="presale.solution" name="solution"></ion-textarea>
+		  </ion-item>
+
+		  <ion-item>
+		  	<ion-label floating>Type Project</ion-label>
+			    <ion-select [(ngModel)]="presale.type_project_name" name="type_project_name" interface="action-sheet">
+			      <ion-option *ngFor="let projecttype of projecttypes">{{projecttype.type_project_name}}</ion-option>
+			</ion-select>
+		  </ion-item>
+
+		  <ion-item>
+		  	<ion-label floating>SFDC Type</ion-label>
+			    <ion-select [(ngModel)]="presale.sfdc_type" name="sfdc_type" interface="action-sheet">
+			      <ion-option *ngFor="let sfdc_types of sfdc_type">{{sfdc_types.sfdc_type}}</ion-option>
+			</ion-select>
+		  </ion-item>
+
+		  <ion-item>
+		  	<ion-label floating>Opportunity Probability(*)</ion-label>
+			    <ion-select [(ngModel)]="presale.opportunity_probability_name" name="oppty_probability_name" (ionChange)="ionStatusproject(presale.opportunity_probability_name)" interface="action-sheet">
+			      <ion-option *ngFor="let opptytype of opptytypes" value="{{opptytype.oppty_probability_name}}" [selected]="opptytype.oppty_probability_name">{{opptytype.oppty_probability_name}}</ion-option>
+			</ion-select>
+		  </ion-item>
+
+		  <ion-item>
+		    <ion-label floating>Oppty Status</ion-label>
+		    <ion-input type="text" [(ngModel)]="presale.status_project_name" name="status_project_name" #mystatus_project_name (input)="mystatus_project_name.value"></ion-input>
+		  </ion-item>
+
+		  <!-- <ion-item>
+		  	<ion-label floating>Project Status</ion-label>
+			    <ion-select [(ngModel)]="presale.status_project_name" name="status_project_name" #mystatus_project_name (change)="mystatus_project_name.value = ionStatusproject(presale.status_project_name)" interface="action-sheet">
+			      <ion-option *ngFor="let statusproject of statusprojects" value="{{presale.status_project_name}}" [selected]="presale.status_project_name==mystatus_project_name">{{statusproject.status_project_name}}</ion-option>
+			</ion-select>
+		  </ion-item> -->
+
+		  <ion-item>
+		    <ion-label floating>Order Price Mio(*)</ion-label>
+		    <ion-input type="text" text-right [(ngModel)]="presale.order_idr" name="order_idr" #myorder_idr (input)="myorder_idr.value = format(presale.order_idr)" (input)="ionCalculate(presale)"></ion-input>
+		  </ion-item>
+
+		  <!-- <ion-item>
+		    <ion-label floating>Order Price Mio(*)</ion-label>
+		    <ion-input type="text" text-right [(ngModel)]="presale.order_idr" name="order_idr" #myorder_idr (input)="myorder_idr.value = format(presale.order_idr)" (input)="ionCalculate(presale.order_idr)"></ion-input>
+		  </ion-item> -->
+
+		  <ion-item>
+		    <ion-label floating>GM 2%(*)</ion-label>
+		    <ion-input type="text" text-right [(ngModel)]="presale.gm_2_persen" name="gm_2_persen" (input)="ionCalculate(presale)"></ion-input>
+		  </ion-item>
+
+		  <ion-item>
+		    <ion-label floating>GM 2 (IDR)</ion-label>
+		    <ion-input type="text" text-right [(ngModel)]="presale.gm_2_idr" name="gm_2_idr" #mygm_2_idr (input)="mygm_2_idr.value = ionCalculate(presale)"></ion-input>
+		  </ion-item>
+
+		  <ion-item>
+		  	  <ion-label floating>Target Project(*)</ion-label>
+		      <ion-datetime displayFormat="MMMM YYYY" [(ngModel)]="presale.po_target" min="1990" max="3000" name="po_target"></ion-datetime>
+		  </ion-item>
+
+		  <ion-item>
+		  	<ion-label floating>Sales PIC</ion-label>
+			    <ion-select [(ngModel)]="presale.sales_pic" name="sales_pic" interface="action-sheet">
+			      <ion-option *ngFor="let saleslist of sales">{{saleslist.sales_name}}</ion-option>
+			</ion-select>
+		  </ion-item>
+
+		  <ion-item>
+		  	<ion-label floating>Delivery PIC</ion-label>
+			    <ion-select [(ngModel)]="presale.delivery_pic" name="delivery_pic" interface="action-sheet">
+			      <ion-option *ngFor="let deliverypiclist of deliverypic">{{deliverypiclist.delivery_pic_name}}</ion-option>
+			</ion-select>
+		  </ion-item>
+
+		  <ion-item>
+		  	  <ion-label floating>Presales Start Date</ion-label>
+		      <ion-datetime displayFormat="MMMM YYYY D" [(ngModel)]="presale.presales_start_date" min="1990" max="3000" name="presales_start_date"></ion-datetime>
+		  </ion-item>
+
+		  <ion-item>
+		  	  <ion-label floating>Partner</ion-label>
+		  	  <ion-textarea [(ngModel)]="presale.partner" name="partner"></ion-textarea>
+		  </ion-item>
+
+		  <ion-item>
+		  	<ion-label floating>Budget(N/P)</ion-label>
+			    <ion-select [(ngModel)]="presale.budget_n_p" name="budget_n_p" interface="action-sheet">
+			      <ion-option value="N">N</ion-option>
+			      <ion-option value="P">P</ion-option>
+			</ion-select>
+		  </ion-item>
+
+		  <ion-item>
+		  	<ion-label>Document Completeness</ion-label>
+		  </ion-item>
+
+		  <ion-item>
+		  	<ion-label floating>Proposal</ion-label>
+			    <ion-select [(ngModel)]="presale.proposal" name="proposal" interface="action-sheet">
+			      <ion-option *ngFor="let documentlist of document">{{documentlist.document_completeness_name}}</ion-option>
+			</ion-select>
+		  </ion-item>
+
+		  <ion-item>
+		  	<ion-label floating>Brochure</ion-label>
+			    <ion-select [(ngModel)]="presale.brochure" name="brochure" interface="action-sheet">
+			      <ion-option *ngFor="let documentlist of document">{{documentlist.document_completeness_name}}</ion-option>
+			</ion-select>
+		  </ion-item>
+
+		  <ion-item>
+		  	<ion-label floating>RAB</ion-label>
+			    <ion-select [(ngModel)]="presale.rab" name="rab" interface="action-sheet">
+			      <ion-option *ngFor="let documentlist of document">{{documentlist.document_completeness_name}}</ion-option>
+			</ion-select>
+		  </ion-item>
+
+		  <ion-item>
+		  	<ion-label floating>KAK</ion-label>
+			    <ion-select [(ngModel)]="presale.kak" name="kak" interface="action-sheet">
+			      <ion-option *ngFor="let documentlist of document">{{documentlist.document_completeness_name}}</ion-option>
+			</ion-select>
+		  </ion-item>
+
+		  <ion-item>
+		  	<ion-label floating>RKS</ion-label>
+			    <ion-select [(ngModel)]="presale.rks" name="rks" interface="action-sheet">
+			      <ion-option *ngFor="let documentlist of document">{{documentlist.document_completeness_name}}</ion-option>
+			</ion-select>
+		  </ion-item>
+
+		  <ion-item>
+		  	<ion-label floating>OMS</ion-label>
+			    <ion-select [(ngModel)]="presale.oms" name="oms" interface="action-sheet">
+			      <ion-option *ngFor="let documentlist of document">{{documentlist.document_completeness_name}}</ion-option>
+			</ion-select>
+		  </ion-item>
+
+		  <ion-item>
+		  	<ion-label floating>IQ</ion-label>
+			    <ion-select [(ngModel)]="presale.iq" name="iq" interface="action-sheet">
+			      <ion-option *ngFor="let documentlist of document">{{documentlist.document_completeness_name}}</ion-option>
+			</ion-select>
+		  </ion-item>
+
+		  <ion-item>
+		  	<ion-label floating>BAR</ion-label>
+			    <ion-select [(ngModel)]="presale.bar" name="bar" interface="action-sheet">
+			      <ion-option *ngFor="let documentlist of document">{{documentlist.document_completeness_name}}</ion-option>
+			</ion-select>
+		  </ion-item>
+
+		  <div padding>
+		  	<button ion-button type="ngSubmit" (click)="ionAddproject(employees_name)" block>Save</button>
+		  </div>
+	</ion-list>
+</ion-content>
+<!-- <ion-footer class="font-item">
+  <ion-toolbar color="primary">
+    <ion-col>
+      <ion-icon name="home" class="my-icon2" (click)="ionHome(employees_name)"></ion-icon>
+    </ion-col>
+    <ion-col>
+      <ion-icon name="information-circle" class="my-icon2" (click)="ionAbout(employees_name)"></ion-icon>
+    </ion-col>
+    <ion-col>
+      <ion-icon name="contacts" class="my-icon2" (click)="ionContact(employees_name)"></ion-icon>
+    </ion-col>
+  </ion-toolbar>
+</ion-footer> -->

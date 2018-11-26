@@ -1,0 +1,31 @@
+<!--
+  Generated template for the SearchprojectPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header class="font-item">
+  <ion-navbar color="white">
+    <ion-title>Project List</ion-title> 
+  </ion-navbar>
+  <ion-navbar hideBackButton color="white">
+  	<ion-searchbar (ionInput)="ionSearch($event)"></ion-searchbar>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="font-item">
+	<ion-row class="windows">
+	    <ion-col *ngFor="let projectlist of project" (click)="iongetidproject(projectlist.id_proj, employees_name)">
+	      <div class="class2-2">
+	        <a class="color">
+	        <img src="~/../assets/imgs/responsive.png" class="my-icon">
+	        <table align="center">
+	          <tr>{{projectlist.project_name}}</tr>
+	          <tr>{{projectlist.customer_name}}</tr>
+	        </table>
+	        </a>
+	      </div>
+	    </ion-col>
+	</ion-row>
+</ion-content>

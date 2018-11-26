@@ -1,0 +1,367 @@
+<!--
+  Generated template for the EditprojectPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header class="font-item">
+
+  <ion-navbar color="white">
+       <img src="~/../assets/imgs/logo_presales.png" class="nav-center" height="50">
+  </ion-navbar>
+  <ion-toolbar color="white">
+    <ion-segment [(ngModel)]="segmentclick" color="light">
+      <ion-segment-button value="editproject" (click)="segmentclick='editproject'">
+        Edit Project
+      </ion-segment-button>
+      <ion-segment-button value="revenue" (click)="segmentclick='revenue'">
+        Revenue Plan
+      </ion-segment-button>
+      <ion-segment-button value="remark" (click)="segmentclick='remark'">
+        Activities Rows
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content class="font-item" [ngSwitch]="segmentclick">
+	<ion-list *ngSwitchCase="'editproject'">
+	  	<ion-input type="hidden" [(ngModel)]="projectedit.employees_update" name="employees_name"></ion-input>
+	  	<ion-input type="hidden" [(ngModel)]="projectedit.id_proj" name="id_proj"></ion-input>
+
+	  <ion-item>
+	  	<ion-label stacked>Bisnis Unit</ion-label>
+		    <ion-select [(ngModel)]="projectedit.bu_name" name="bu_name" interface="action-sheet">
+		      <ion-option *ngFor="let bisnisunitlist of bisnisunit">{{bisnisunitlist.bu_name}}</ion-option>
+		</ion-select>
+	  </ion-item>
+
+	  <ion-item>
+	    <ion-label stacked>Pipeline</ion-label>
+	    <ion-select [(ngModel)]="projectedit.pipeline" name="pipeline" interface="action-sheet">
+		      <ion-option *ngFor="let pipeline of pipelines">{{pipeline.pipeline}}</ion-option>
+		</ion-select>
+	  </ion-item>
+	  
+	  <ion-item>
+	    <ion-label stacked>Oppty ID</ion-label>
+	    <ion-input type="text" [(ngModel)]="projectedit.oppty_id" name="oppty_id"></ion-input>
+	  </ion-item>
+
+	  <ion-item>
+	  	<ion-label stacked>Presales Name</ion-label>
+		    <ion-select [(ngModel)]="projectedit.id_presales" name="id_presales" interface="action-sheet">
+		      <ion-option *ngFor="let presale of presales" value="{{presale.id_presales}}">{{presale.presales_name}}</ion-option>
+		</ion-select>
+	  </ion-item>
+
+	  <ion-item>
+	    <ion-label stacked>Project Name</ion-label>
+	    <ion-input type="text" [(ngModel)]="projectedit.project_name" name="project_name"></ion-input>
+	  </ion-item>
+
+	  <ion-item>
+	  	<ion-label stacked>Customer Name</ion-label>
+		    <ion-select [(ngModel)]="projectedit.customer_name" name="customer_name" placeholder="{{projectedit.customer_name}}" interface="action-sheet">
+		      <ion-option *ngFor="let customer of customers">{{customer.customer_name}}</ion-option>
+		</ion-select>
+	  </ion-item>
+
+	  <ion-item>
+	  	  <ion-label stacked>Current Status</ion-label>
+	  	  <ion-textarea [(ngModel)]="projectedit.current_status" name="current_status"></ion-textarea>
+	  </ion-item>
+
+	  <ion-item>
+	  	<ion-label stacked>Type Customer</ion-label>
+		    <ion-select [(ngModel)]="projectedit.customer_type" name="customer_type" placeholder="{{projectedit.customer_type}}" interface="action-sheet">
+		      <ion-option *ngFor="let customertype of customertypes">{{customertype.customer_type}}</ion-option>
+		</ion-select>
+	  </ion-item>
+
+	  <ion-item>
+	  	<ion-label stacked>Solution Category</ion-label>
+		    <ion-select [(ngModel)]="projectedit.solution_category_name" name="solution_category_name" placeholder="{{projectedit.solution_category_name}}" interface="action-sheet">
+		      <ion-option *ngFor="let solution of solutions">{{solution.solution_category_name}}</ion-option>
+		</ion-select>
+	  </ion-item>
+
+	  <ion-item>
+	  	  <ion-label floating>Solution</ion-label>
+	  	  <ion-textarea [(ngModel)]="projectedit.solution" name="solution"></ion-textarea>
+	  </ion-item>
+
+	  <ion-item>
+	  	<ion-label stacked>Type Project</ion-label>
+		    <ion-select [(ngModel)]="projectedit.type_project_name" name="type_project_name" placeholder="{{projectedit.type_project_name}}" interface="action-sheet">
+		      <ion-option *ngFor="let projecttype of projecttypes">{{projecttype.type_project_name}}</ion-option>
+		</ion-select>
+	  </ion-item>
+
+	  <ion-item>
+	  	<ion-label stacked>SFDC Type</ion-label>
+		    <ion-select [(ngModel)]="projectedit.sfdc_type" name="sfdc_type" placeholder="{{projectedit.sfdc_type}}" interface="action-sheet">
+		      <ion-option *ngFor="let sfdc_types of sfdc_type">{{sfdc_types.sfdc_type}}</ion-option>
+		</ion-select>
+	  </ion-item>
+
+	  <ion-item>
+	  	<ion-label stacked>Opportunity Probability</ion-label>
+		    <ion-select [(ngModel)]="projectedit.oppty_probability_name" name="oppty_probability_name" placeholder="{{projectedit.oppty_probability_name}}" interface="action-sheet">
+		      <ion-option *ngFor="let opptytype of opptytypes">{{opptytype.oppty_probability_name}}</ion-option>
+		</ion-select>
+	  </ion-item>
+
+	  <ion-item>
+	  	<ion-label stacked>Project Status</ion-label>
+		    <ion-select [(ngModel)]="projectedit.status_project_name" name="status_project_name" placeholder="{{projectedit.status_project_name}}" interface="action-sheet">
+		      <ion-option *ngFor="let statusproject of statusprojects">{{statusproject.status_project_name}}</ion-option>
+		</ion-select>
+	  </ion-item>
+
+	  <ion-item>
+	    <ion-label stacked>Order Price Mio</ion-label>
+	    <ion-input type="number" [(ngModel)]="projectedit.order_idr" name="order_idr" placeholder="{{projectedit.order_idr}}" (input)="ionCalculate(projectedit.order_idr)"></ion-input>
+	  </ion-item>
+
+	  <ion-item>
+	    <ion-label stacked>GM 2%</ion-label>
+	    <ion-input type="number" [(ngModel)]="projectedit.gm_2_persen" name="gm_2_persen" placeholder="{{projectedit.gm_2_persen}}" (input)="ionCalculate(projectedit.gm_2_persen)"></ion-input>
+	  </ion-item>
+
+	  <ion-item>
+	    <ion-label stacked>GM 2 (IDR)</ion-label>
+	    <ion-input type="number" [(ngModel)]="projectedit.gm_2_idr" name="gm_2_idr" placeholder="{{projectedit.gm_2_idr}}" #mygm_2_idr (input)="mygm_2_idr.value = ionCalculate(projectedit.gm_2_idr)"></ion-input>
+	  </ion-item>
+
+	  <ion-item>
+	  	  <ion-label stacked>Target Project</ion-label>
+	      <ion-datetime displayFormat="MMM YYYY" [(ngModel)]="projectedit.po_target" min="1990" max="3000" name="po_target" placeholder="{{projectedit.po_target}}"></ion-datetime>
+	  </ion-item>
+
+	  <ion-item>
+	  	<ion-label stacked>Sales PIC</ion-label>
+		    <ion-select [(ngModel)]="projectedit.sales_pic" name="sales_pic" interface="action-sheet">
+		      <ion-option *ngFor="let saleslist of sales">{{saleslist.sales_name}}</ion-option>
+		</ion-select>
+	  </ion-item>
+
+	  <ion-item>
+	  	<ion-label stacked>Delivery PIC</ion-label>
+		    <ion-select [(ngModel)]="projectedit.delivery_pic" name="delivery_pic" interface="action-sheet">
+		      <ion-option *ngFor="let deliverypiclist of deliverypic">{{deliverypiclist.delivery_pic_name}}</ion-option>
+		</ion-select>
+	  </ion-item>
+
+	  <ion-item>
+	  	  <ion-label stacked>Presales Start Date</ion-label>
+	      <ion-datetime displayFormat="YYYY MMMM D" [(ngModel)]="projectedit.presales_start_date" min="1990" max="3000" name="presales_start_date" placeholder="{{projectedit.presales_start_date}}"></ion-datetime>
+	  </ion-item>
+
+	  <ion-item>
+	  	  <ion-label stacked>Partner</ion-label>
+	  	  <ion-textarea [(ngModel)]="projectedit.partner" name="partner"></ion-textarea>
+	  </ion-item>
+
+	  <ion-item>
+	  	<ion-label stacked>Budget(N/P)</ion-label>
+		    <ion-select [(ngModel)]="projectedit.budget_n_p" name="budget_n_p" interface="action-sheet">
+		      <ion-option value="N">N</ion-option>
+		      <ion-option value="P">P</ion-option>
+		</ion-select>
+	  </ion-item>
+
+	  <ion-item>
+	  	<ion-label>Document Completeness</ion-label>
+	  </ion-item>
+
+	  <ion-item>
+	  	<ion-label floating>Proposal</ion-label>
+		    <ion-select [(ngModel)]="projectedit.proposal" name="proposal" interface="action-sheet">
+		      <ion-option *ngFor="let documentlist of document">{{documentlist.document_completeness_name}}</ion-option>
+		</ion-select>
+	  </ion-item>
+
+	  <ion-item>
+	  	<ion-label floating>Brochure</ion-label>
+		    <ion-select [(ngModel)]="projectedit.brochure" name="brochure" interface="action-sheet">
+		      <ion-option *ngFor="let documentlist of document">{{documentlist.document_completeness_name}}</ion-option>
+		</ion-select>
+	  </ion-item>
+
+	  <ion-item>
+	  	<ion-label floating>RAB</ion-label>
+		    <ion-select [(ngModel)]="projectedit.rab" name="rab" interface="action-sheet">
+		      <ion-option *ngFor="let documentlist of document">{{documentlist.document_completeness_name}}</ion-option>
+		</ion-select>
+	  </ion-item>
+
+	  <ion-item>
+	  	<ion-label floating>KAK</ion-label>
+		    <ion-select [(ngModel)]="projectedit.kak" name="kak" interface="action-sheet">
+		      <ion-option *ngFor="let documentlist of document">{{documentlist.document_completeness_name}}</ion-option>
+		</ion-select>
+	  </ion-item>
+
+	  <ion-item>
+	  	<ion-label floating>RKS</ion-label>
+		    <ion-select [(ngModel)]="projectedit.rks" name="rks" interface="action-sheet">
+		      <ion-option *ngFor="let documentlist of document">{{documentlist.document_completeness_name}}</ion-option>
+		</ion-select>
+	  </ion-item>
+
+	  <ion-item>
+	  	<ion-label floating>OMS</ion-label>
+		    <ion-select [(ngModel)]="projectedit.oms" name="oms" interface="action-sheet">
+		      <ion-option *ngFor="let documentlist of document">{{documentlist.document_completeness_name}}</ion-option>
+		</ion-select>
+	  </ion-item>
+
+	  <ion-item>
+	  	<ion-label floating>IQ</ion-label>
+		    <ion-select [(ngModel)]="projectedit.iq" name="iq" interface="action-sheet">
+		      <ion-option *ngFor="let documentlist of document">{{documentlist.document_completeness_name}}</ion-option>
+		</ion-select>
+	  </ion-item>
+
+	  <ion-item>
+	  	<ion-label floating>BAR</ion-label>
+		    <ion-select [(ngModel)]="projectedit.bar" name="bar" interface="action-sheet">
+		      <ion-option *ngFor="let documentlist of document">{{documentlist.document_completeness_name}}</ion-option>
+		</ion-select>
+	  </ion-item>
+
+	  <div padding>
+	  	<button ion-button type="ngSubmit" (click)="ionEditproject(projectedit.id_proj, employees_name)" block>Save</button>
+	  </div>
+	</ion-list>
+
+	<!-- Revenue -->
+	<ion-list *ngSwitchCase="'revenue'">
+		<ion-input type="hidden" [(ngModel)]="revenue.employees_update" name="employees_name"></ion-input>
+
+	    <!-- <ion-item>
+	      <ion-label floating>Project Name</ion-label>
+	        <ion-select [(ngModel)]="revenue.id_proj" name="id_proj">
+	          <ion-option value="{{revenue.id_proj}}">{{revenue.project_name}}</ion-option>
+	      </ion-select>
+	    </ion-item> -->
+
+	    <!-- <ion-item>
+	      <ion-label floating>Customer Name</ion-label>
+	      <ion-input type="text" value="{{revenue.customer_name}}"></ion-input>
+	    </ion-item> -->
+
+	    <!-- <ion-item>
+	      <ion-label floating>Presales Name</ion-label>
+	      <ion-input type="text" value="{{revenue.presales_name}}"></ion-input>
+	    </ion-item> -->
+
+	    <ion-item>
+	        <ion-label floating>Date Revenue Plan</ion-label>
+	        <ion-datetime displayFormat="YYYY MMM DD" min="1990" max="3000" [(ngModel)]="revenue.month_q" name="month_q"></ion-datetime>
+	    </ion-item>
+
+	    <ion-item>
+	      <ion-label floating>Amount</ion-label>
+	      <ion-input type="text" text-right [(ngModel)]="revenue.amount" name="amount" #myamount (input)="myamount.value = format(revenue.amount)"></ion-input>
+	    </ion-item>
+
+	    <div padding>
+	      <button ion-button type="ngSubmit" (click)="ionAddrevenue(revenue.id_proj, employees_name)" block>Save</button>
+	    </div>
+	  </ion-list>
+	<ion-list style="background-color: #DEB887;" *ngSwitchCase="'revenue'">
+    <table style="border-collapse: collapse; width:100%;">
+    	<tr>
+    		<th style="text-align:center;">Month</th>
+    		<th style="text-align:center;">Amount</th>
+    		<th style="text-align:center;">Action</th>
+    	</tr>
+    	<tr *ngFor="let projects of projectlist" col-12>
+    		<td style="text-align:center;">{{ projects.month_q }}</td>
+    		<td style="text-align:right;">{{ projects.amount }}</td>
+    		<td style="text-align:center;">
+    			<button ion-button color="danger" (click)="iondeleterevenue(projects.id_revenue_plan, projectremark.id_proj, employees_name)"><ion-icon name="trash"></ion-icon></button>
+	      		<button ion-button color="warning" (click)="ioneditrevenue(projects.id_revenue_plan, employees_name)"><ion-icon name="create"></ion-icon></button>
+    		</td>
+    	</tr>
+    </table>
+	</ion-list>
+
+	  <!-- Remark -->
+	  <ion-list *ngSwitchCase="'remark'">
+	  	<ion-input type="hidden" [(ngModel)]="projectremark.employees_update" name="employees_name"></ion-input>
+
+	  <!-- <ion-item>
+	  	<ion-label floating>Project Name</ion-label>
+		    <ion-select [(ngModel)]="projectremark.id_proj" name="id_proje">
+		      <ion-option value="{{projectremark.id_proj}}">{{projectremark.project_name}}</ion-option>
+			</ion-select>
+	  </ion-item> -->
+
+	  	<!-- <ion-item>
+	      <ion-label floating>Customer Name</ion-label>
+	      <ion-input type="text" value="{{projectremark.customer_name}}"></ion-input>
+	    </ion-item> -->
+
+	    <!-- <ion-item>
+	      <ion-label floating>Presales Name</ion-label>
+	      <ion-input type="text" value="{{projectremark.presales_name}}"></ion-input>
+	    </ion-item> -->
+
+	  <ion-item>
+	  	  <ion-label floating>Activity</ion-label>
+	  	  <ion-textarea [(ngModel)]="projectremark.remark" name="remark"></ion-textarea>
+	  </ion-item>
+
+	  <ion-item>
+	  	<ion-label floating>Status Activity</ion-label>
+		    <ion-select [(ngModel)]="projectremark.status_remark" name="status_remark">
+		      <ion-option *ngFor="let remarkmaster of remarks">{{remarkmaster.status_remark_name}}</ion-option>
+			</ion-select>
+	  </ion-item>
+
+	  <ion-item>
+	  	  <ion-label floating>Date Target</ion-label>
+	      <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="projectremark.date_target" min="1990" max="3000" name="date_target"></ion-datetime>
+	  </ion-item>
+
+	  <div padding>
+	  	<button ion-button type="ngSubmit" (click)="ionAddremark(projectremark.id_proj, employees_name)" block>Save</button>
+	  </div>
+	</ion-list>
+	<ion-list style="background-color: #DEB887;" *ngSwitchCase="'remark'">
+		<table style="border-collapse: collapse; width:100%;">
+	    	<tr>
+	    		<th style="text-align:center;">Activities</th>
+	    		<th style="text-align:center;">Status</th>
+	    		<th style="text-align:center;">Action</th>
+	    	</tr>
+	    	<tr *ngFor="let remarklist of remark" col-12>
+	    		<td style="text-align:center;">{{ remarklist.remark }}</td>
+	    		<td style="text-align:right;">{{ remarklist.status_remark }}</td>
+	    		<td style="text-align:center;">
+	    			<button ion-button color="danger" (click)="iondeleteremark(remarklist.id_remark_plan, projectremark.id_proj, employees_name)"><ion-icon name="trash"></ion-icon></button>
+		      		<button ion-button color="warning" (click)="ioneditremark(remarklist.id_remark_plan, employees_name)"><ion-icon name="create"></ion-icon></button>
+	    		</td>
+	    	</tr>
+	    </table>
+	</ion-list>
+
+</ion-content>
+<ion-footer class="font-item">
+  <ion-toolbar color="white">
+    <ion-col>
+      <ion-icon name="home" class="my-icon2" (click)="ionHome(projectedit.employees_update)"></ion-icon>
+    </ion-col>
+    <ion-col>
+      <ion-icon name="add-circle" class="my-icon2" (click)="ionNew(projectedit.employees_update)"></ion-icon>
+    </ion-col>
+    <ion-col>
+      <ion-icon name="information-circle" class="my-icon2" (click)="ionAbout(projectedit.employees_update)"></ion-icon>
+    </ion-col>
+  </ion-toolbar>
+</ion-footer>

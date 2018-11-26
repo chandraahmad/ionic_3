@@ -1,0 +1,63 @@
+<!--
+  Generated template for the EditremarkPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="white">
+       <img src="~/../assets/imgs/logo_presales.png" class="tengah" height="50">
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+	<ion-list>
+		<ion-input type="hidden" [(ngModel)]="editremark.id_remark_plan" name="id_remark_plan"></ion-input>
+
+	  <ion-item>
+	  	<ion-label floating>Project Name</ion-label>
+		    <ion-select [(ngModel)]="editremark.id_proj" name="id_proj">
+		      <ion-option value="{{editremark.id_proj}}">{{editremark.project_name}}</ion-option>
+			</ion-select>
+	  </ion-item>
+
+	  <ion-item>
+	  	  <ion-label floating>Activity</ion-label>
+	  	  <ion-textarea [(ngModel)]="editremark.remark" name="remark"></ion-textarea>
+	  </ion-item>
+
+	  <ion-item>
+	  	<ion-label floating>Status Activity</ion-label>
+		    <ion-select [(ngModel)]="editremark.status_remark" name="status_remark">
+		      <ion-option *ngFor="let remarkmaster of remarks">{{remarkmaster.status_remark_name}}</ion-option>
+			</ion-select>
+	  </ion-item>
+
+	  <ion-item>
+	  	  <ion-label floating>Date Target</ion-label>
+	      <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="editremark.date_target" name="date_target"></ion-datetime>
+	  </ion-item>
+
+	  <div padding>
+	  	<button ion-button type="ngSubmit" (click)="ionUpdateremark(editremark.id_proj, employees_name)" block>Save</button>
+	  </div>
+	</ion-list>
+
+</ion-content>
+<!-- <ion-footer class="font-item">
+  <ion-toolbar color="primary">
+    <ion-col>
+      <ion-icon name="home" class="my-icon2" (click)="ionHome(employees_name)"></ion-icon>
+    </ion-col>
+    <ion-col>
+      <ion-icon name="information-circle" class="my-icon2" (click)="ionAbout(employees_name)"></ion-icon>
+    </ion-col>
+    <ion-col>
+      <ion-icon name="contacts" class="my-icon2" (click)="ionContact(employees_name)"></ion-icon>
+    </ion-col>
+  </ion-toolbar>
+</ion-footer> -->

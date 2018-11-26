@@ -1,0 +1,43 @@
+page-new {
+
+.col{
+	flex: 0 0 50%;
+	max-width: 50%;
+	padding:2px 5px;
+	text-align:center;
+}
+.center{
+	text-align: center;
+}
+.my-icon:before,
+.my-icon{
+	width: 70px;
+	height: 70px;
+	padding: 5px;
+	margin-left: auto;
+    margin-right: auto;
+	color: #00ccff;
+	display:block;	
+}
+.color{
+	color: #ffffff;
+}
+.my-icon2{
+	width: 31%;
+	font-size: 25px !important;
+	align-content: center;
+	color: #ffffff;	
+}
+.tengah{
+	display: block;
+    margin-left: auto;
+    margin-right: 46%;
+}
+
+.input[type="text"]{ text-align:right }
+
+.font-item{
+	font-family: "Fujitsu Sans Medium";
+}
+
+}

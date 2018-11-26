@@ -1,0 +1,124 @@
+<ion-header class="font-item">
+  <ion-navbar hideBackButton color="white">
+    <img src="~/../assets/imgs/logo_presales.png" class="nav-center" height="50">
+  </ion-navbar>
+  <!-- <ion-navbar hideBackButton color="secondary">
+      <ion-searchbar (ionInput)="ionSearch($event)"></ion-searchbar> 
+  </ion-navbar> -->
+  
+</ion-header>
+
+<ion-content class="font-item">
+  <div class="card-header">
+    <div class="box-menu">
+      <div class="box-menu-header">
+        <header class="font-color"> Welcome User</header>
+      </div>
+      <ion-row class="windows">
+        <ion-col>
+          <div class="class3-3">
+            <a (click)="ionNew(employees_name)" class="font-color">
+            <img src="~/../assets/imgs/add.png" class="my-icon">
+            New Project
+            </a>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div class="class3-3">
+            <a (click)="ionSearchproject(employees_name)" class="font-color">
+            <img src="~/../assets/imgs/search.png" class="my-icon">
+            Search Project
+            </a>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div class="class3-3">
+            <a (click)="ionBU(employees_name)" class="font-color">
+            <img src="~/../assets/imgs/bookmark.png" class="my-icon">
+            Report Project
+            </a>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div class="class3-3">
+            <a (click)="ionType(employees_name)" class="font-color">
+            <img src="~/../assets/imgs/info.png" class="my-icon">
+            About
+            </a>
+          </div>
+        </ion-col>
+      </ion-row>
+    </div>
+    <br>
+    <ion-row class="windows">
+      <ion-col>
+        <div class="class2-2">
+          <a (click)="ionPresales(employees_name)" class="font-color1">
+          <img src="~/../assets/imgs/travel.png" class="my-icon box-icon">
+          By Presales
+          </a>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div class="class2-2">
+          <a (click)="ionCustomer(employees_name)" class="font-color1">
+          <img src="~/../assets/imgs/office-block.png" class="my-icon box-icon">
+          By Customer
+        </a>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div class="class2-2">
+          <a (click)="ionStatus(employees_name)" class="font-color1">
+          <img src="~/../assets/imgs/checklist.png" class="my-icon box-icon">
+          By Status
+          </a>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row class="windows">
+      <ion-col>
+        <div class="class2-2">
+          <a (click)="ionPipeline(employees_name)" class="font-color1">
+          <img src="~/../assets/imgs/calendar.png" class="my-icon box-icon">
+          By Pipeline
+          </a>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div class="class2-2">
+          <a (click)="ionBU(employees_name)" class="font-color1">
+          <img src="~/../assets/imgs/analytics-1.png" class="my-icon box-icon">
+          By Business Unit
+          </a>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div class="class2-2">
+          <a (click)="ionType(employees_name)" class="font-color1">
+          <img src="~/../assets/imgs/diagram.png" class="my-icon box-icon">
+          By Type
+          </a>
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
+  <!-- <ion-row>
+    <ion-col>
+      <div style="background-color: #DEB887;" class="class2-2">
+        <a (click)="ionRemark(employees_name)" class="color">
+        <img src="../../assets/imgs/remark.png" class="my-icon">
+        By Activities Row
+        </a>
+      </div>
+    </ion-col>
+    <ion-col>
+      <div style="background-color: #DEB887;" class="class2-2">
+        <a (click)="ionRevenueplan(employees_name)" class="color">
+        <img src="../../assets/imgs/revenue.png" class="my-icon">
+        By Revenue Plan
+        </a>
+      </div>
+    </ion-col>
+  </ion-row> -->
+</ion-content>
